@@ -2,6 +2,7 @@
 
 
 <% @challenges.each do |ch| %>
-  <p> <%= ch.title + ': ' + ch.description %> </p>
+  <p> <%= link_to ch.title, challenge_path(ch) %> </p>
+  <p> <%= ch.description %> </p>
 
 <% end %>
