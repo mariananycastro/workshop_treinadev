@@ -1,0 +1,9 @@
+<h1> <%= @challenge.title %> </h1>
+
+<p> <%= @challenge.description %> </p>
+
+<%= form_with url: challenge_solution_path(@challenge, @solution), local: true do |f| %>
+  <%= f.label :answer, 'Solução'%>
+  <%= f.text_field :answer %>
+  <%= f.submit 'Finalizar' %>
+<% end %>
