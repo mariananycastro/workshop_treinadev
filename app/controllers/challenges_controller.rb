@@ -5,12 +5,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
-    @user = current_user
-    @solution = @user.solution.build(answer: params.permit[:answer])
-    @solution.challenge = @challenge
-    byebug
-    @solution.save!
-    
-    render @solution
+    @temp_solution = current_user.solution.build()
+    @solution = Solution.find_by(challenge: @challenge, user: current_user)
   end
 end

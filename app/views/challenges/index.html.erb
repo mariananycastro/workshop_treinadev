@@ -1,8 +1,6 @@
 <h5> Desafios </h5>
 
-
 <% @challenges.each do |ch| %>
   <p> <%= link_to ch.title, challenge_path(ch) %> </p>
   <p> <%= ch.description %> </p>
-
 <% end %>

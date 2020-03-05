@@ -10,4 +10,5 @@ feature 'user creates comment' do
     click_on 'Enviar'
 
     expect(page).to have_css('#comment', text: 'Meu comentário')
+  end
 end

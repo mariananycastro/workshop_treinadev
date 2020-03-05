@@ -2,8 +2,12 @@
 
 <p> <%= @challenge.description %> </p>
 
-<%= form_with url: challenge_solution_path(@challenge, @solution), local: true do |f| %>
-  <%= f.label :answer, 'Solução'%>
-  <%= f.text_field :answer %>
-  <%= f.submit 'Finalizar' %>
+<% if !@solution.present? %>
+  <%= form_with model: [@challenge, @temp_solution], url: challenge_solution_index_path(@challenge), local: true do |f| %>
+    <%= label_tag :answer, 'Solução' %>
+    <%= text_field_tag :answer %>
+    <%= submit_tag 'Finalizar' %>
+  <% end %>
+<% else %>
+  <p> <%= link_to 'Ver solução', challenge_solution_path(@challenge, @solution)%>
 <% end %>
